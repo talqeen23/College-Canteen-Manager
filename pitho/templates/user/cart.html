@@ -1,0 +1,50 @@
+{% extends 'user/layout.html' %}
+{% block pagetitle %}cart{% endblock %}
+{% block body %}
+<div class="main-container">
+<div class='title'><h1>Food Cart</h1></div>
+<div class='dashboard'>
+<div class='left'>
+<div class='sidebar'>
+<ul class='sidemenu'>
+<li><a href="{{url_for('user_dashboard')}}">Home</a></li>
+<li><a href="{{url_for('user_menu')}}">Canteen Menu</a></li>
+<li><a href="{{url_for('user_changepassword')}}">Change Password</a></li>
+<li><a href="{{url_for('user_editprofile')}}">Edit Profile</a></li>
+<li><a href="{{url_for('logout')}}">logout</a></li>
+</ul>
+</div>
+</div>
+<div class="right">
+<div class="item_list">
+<ul class="list users">
+<li class="top_head"><span>Item Name</span><span>Item Price</span><span>Qauntity</span><span>Delete Item</span></li>
+{% for item in item_list %}
+<li>
+
+<span>{{item['item_name']}}</span>
+<span>{{item['item_price']}}</span>
+<span>{{item['quantity']}}</span>
+<span><a href="{{url_for('delete_cartitem',id=item['id'],uid=user_id)}}"><img src="{{url_for('static',filename='user/images/delete.png')}}"/></a></span>
+</li>
+{% endfor %}
+</ul>
+</div>
+
+<div class="form-control submitbtn">
+<input type="submit" value="Checkout"/>
+</div>
+
+
+
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+

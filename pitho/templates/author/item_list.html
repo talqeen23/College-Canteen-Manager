@@ -1,0 +1,54 @@
+{% extends 'author/layout.html' %}
+{% block pagetitle %}item-list{% endblock %}
+{% block body %}
+<div class="main-container">
+<div class="title"><h1>Canteen Menu</h1></div>
+<div class="dashboard">
+<div class="left">
+<div class="sidebar">
+<ul class="sidemenu">
+<li><a href="{{url_for('author_dashboard')}}">Home</a></li>
+<li><a href="{{url_for('item_list')}}">Canteen Menu</a></li>
+<li><a href="{{url_for('logout')}}">Logout</a></li>
+</ul>
+</div>
+</div>
+<div class="right">
+<div class="item_form">
+<form action="" method="POST">
+{{form.csrf_token()}}
+<ul>
+<li>
+{{form.item_name.label}}
+{{form.item_name()}}
+{{render_error(form.item_name)}}
+</li>
+<li>
+{{form.item_price.label}}
+{{form.item_price()}}
+{{render_error(form.item_price)}}
+</li>
+<li>
+<input type="hidden" name="author_id" value="{{author_id}}"/>
+{{form.submit()}}
+{{render_error(form.submit)}}
+</li>
+</ul>
+</form>
+<div class="item_list">
+<ul class="list">
+<li class="top_head"><span>Product Name</span><span>Product Price</span><span>Action</span></li>
+{% for item in item_list %}
+<li>
+<span>{{item['item_name']}}</span>
+<span>{{item['item_price']}} &#x20b9; </span>
+<span><a href="{{url_for('delete', id=item['id'],uid=author_id)}}"><img src="{{url_for('static',filename='user/images/delete.png')}}"/></a></span>
+</li>
+{% endfor %}
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

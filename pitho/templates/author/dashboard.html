@@ -1,0 +1,97 @@
+{% extends 'author/layout.html' %}
+{% block pagetitle %}author-dashboard{% endblock %}
+{% block body%}
+<div class='main-container'>
+<div class='title'><h1>Author-Dashboard</h1></div>
+<div class='dashboard'>
+<div class='left'>
+<div class='sidebar'>
+<ul class='sidemenu'>
+<li><a href="{{url_for('author_dashboard')}}">Home</a></li>
+<li><a href="{{url_for('item_list')}}">Canteen Menu</a></li>
+<li><a href="{{url_for('logout')}}">logout</a></li>
+</ul>
+</div>
+</div>
+<div class='right'>
+<div class='user_list'>
+<form method='GET' action="">
+<div class='form-control'>
+
+<select name='user'>
+<option value='0'>Select User</option>
+{% if users_list %}
+	{% for users in users_list %}
+		{% set seld=""%}
+		{% if user_id|string() == users['id']|string() %}
+		{% set seld="selected='true'"%}
+		{% endif %}
+		<option value="{{users['id']}}" {{seld}}>{{users['name']}}</option>
+	{% endfor %}
+{% endif %}
+</select>
+
+<div class="choose-btn">
+<button type="submit"> select user</button>
+</div>
+</div>
+</form>
+</div>
+
+<div class="item_form ajax">
+<form action="" method="POST">
+{{form.csrf_token()}}
+<ul>
+<li>
+{{form.item_name.label}}
+{{form.item_name(autocomplete='off')}}
+{{render_error(form.item_name)}}
+<ul class="item_lists"></ul>
+</li>
+<li>
+{{form.item_price.label}}
+{{form.item_price()}}
+{{render_error(form.item_price)}}
+</li>
+<li>
+<input type="hidden" name="user_id" value="{{user_id}}"/>
+{{form.submit()}}
+{{render_error(form.submit)}}
+</li>
+</ul>
+</form>
+</div>
+<div class="item_list">
+
+<ul class="list">
+<li class="top_head"><span>Item Name</span><span>Item Price</span><span>Action</span><span>Payment Status</span></li>
+{% if item_list %}
+{% for item in item_list %}
+
+<li>
+
+<span>{{item['item_name']}} </span>
+<span>{{item['item_price']}} &#x20b9; </span>
+
+<span><a href="{{url_for('delete_item' , id=item['id'],uid=user_id)}}"><img src="{{url_for('static',filename='user/images/delete.png')}}"/></a></span>
+
+<span> 
+{% if item['payment_rec'] == 'no'%}
+<form method="post" action="{{url_for('update_item')}}"><select name="payment_rec"><option value="no">No</option><option value="yes">Yes</option></select><input type="hidden" name="id" value="{{item['id']}}"/><input type="hidden" name="user_id" value="{{user_id}}"/><button type="submit">Update</button></form>
+{% endif %}{% if item['payment_rec'] == 'yes' %} Paid {% endif %}
+</span>
+</li>
+
+
+
+{% endfor %}
+<li><div> <strong>Total due amount :</strong> {{total['total']}}&#x20b9;</div></li>
+{% endif %}
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

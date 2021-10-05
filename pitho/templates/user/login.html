@@ -1,0 +1,25 @@
+{% extends 'user/layout.html' %}
+{% block pagetitle %} Login {% endblock %}
+{% block body %}
+{{data}}
+<div class="form-group" style="padding-right:550px; padding-left:550px; padding-top:100px; padding-bottom:100px;">
+<div class="loginform">
+<h1 class="display-4"> login </h1>
+<form action="" method="POST">
+{{form.csrf_token()}}
+<div class="form-control"><br>
+{{form.youremail.label}}
+{{form.youremail()}}
+{{render_error(form.youremail)}}<br>
+{{form.password.label}}
+{{form.password()}}
+{{render_error(form.password)}}<br><br>
+<input type="submit" value="login"/>
+</div>
+</form>
+<a href="{{url_for('user_reset')}}">Forget Password</a>
+<a href ="{{url_for('user_register')}}">Create your account</a>
+</div>
+</div>
+
+{% endblock %}

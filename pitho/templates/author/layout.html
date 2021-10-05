@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>{% block pagetitle %} {% endblock %}</title>
+<link rel="icon" href="{{url_for('static',filename='user/images/logo.jpg')}}"/>
+<link href="{{url_for('static',filename='user/css/style.css')}}" rel= "stylesheet" />
+
+</head>
+<body bgcolor='lightgray'>
+{% set messages = get_flashed_messages() %}
+{% if messages %}
+<div class="messages">
+	<ul>{% for message in  messages %}
+		<li>{{message}}</li>
+		{% endfor %}
+	</ul>
+	</div>
+{% endif %}
+{% macro render_error (field) %}
+{% if field.errors %}
+{% for error in field.errors %}<span class='error'>{{error}}</span>{% endfor %}
+{% endif %}
+{% endmacro %}	
+{% block body %} 
+
+
+
+
+
+{% endblock %}
+
+<script src="{{url_for('static',filename='user/js/jquery.min.js')}}"></script>
+<script src="{{url_for('static',filename='user/js/custom.js')}}"></script>
+</body>
+</html>

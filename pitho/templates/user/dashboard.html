@@ -1,0 +1,48 @@
+{% extends 'user/layout.html' %}
+{% block pagetitle %} user-dashboard {% endblock %}
+{% block body %}
+<div class="main-container">
+<div class='dashboard'>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+	<div class="container-fluid">
+		<a class="navbar-brand">AIET CANTEEN</a>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class='navbar-nav' style="padding-left:900px;">
+			<a class="nav-link active" aria-current="page" href="{{url_for('user_dashboard')}}">Home</a>
+			<a class="nav-link" href="{{url_for('user_menu')}}">Menu</a>
+			<a class="nav-link" href="{{url_for('user_changepassword')}}">Change Password</a>
+			<a class="nav-link" href="{{url_for('user_editprofile')}}">Edit Profile</a>
+			<a class="nav-link" href="{{url_for('logout')}}">logout</a>
+			</div>
+		</div>
+	</div>
+</nav>
+<div class='right' style="padding-left:350px; padding-top:25px;">
+<div class="item_list">
+<ul class="list users">
+<li class="top_head" style="padding-left:80px;"><span>Item Name</span><span>Item Price</span><span>Payment Status</span></li>
+{% if item_list %}
+{% for item in item_list %}
+<li>
+
+<span>{{item['item_name']}}</span>
+<span>{{item['item_price']}}&#x20b9;</span>
+<span>
+
+{% if item['payment_rec'] == 'yes'%}Paid{% endif %}
+{% if item['payment_rec'] ==  'no'%}Due{% endif %}
+
+
+</span>
+</li>
+{% endfor %}
+<li><div><strong>Total due amount : </strong>    {{total['total']}}&#x20b9;</div></li>
+{% endif %}
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

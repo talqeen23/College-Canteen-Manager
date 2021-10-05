@@ -1,0 +1,38 @@
+{% extends 'user/layout.html' %}
+{% block pagetitle %} Reset Password {% endblock %}
+{% block body %}
+{{data}}
+<div class='main-container'>
+<div class="loginform resetform">
+<h1> Reset Password</h1>
+<form action="" method="POST">
+{{form.csrf_token()}}
+<div class="form-control">
+{{form.youremail.label}}
+{{form.youremail()}}
+{{render_error(form.youremail)}}
+</div>
+{% if otp==True %}
+<div class="form-control">
+{{form.otp.label}}
+{{form.otp()}}
+{{render_error(form.otp)}}
+
+</div>
+{% endif %}
+{% if passw==True %}
+<div class="form-control">
+{{form.reset.label}}
+{{form.reset()}}
+{{render_error(form.reset)}}
+</div>
+{% endif %}
+<div class="form-control">
+<div class="form-control sumbitbtn">
+<input type="submit" value="Confirm"/>
+</div>
+</div>
+</form>
+</div>
+</div>
+{% endblock %}

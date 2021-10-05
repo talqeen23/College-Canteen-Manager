@@ -1,0 +1,267 @@
+body{
+	margin:0px;
+}
+
+.cart_item span {
+    position: relative;
+}
+
+.cart_item span a {
+    position: absolute;
+    background: #f00;
+    color: #fff;
+    width: 23px;
+    height: 23px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 23px;
+    top: -24px;
+	text-decoration:none;
+}
+.item_list form input[name="quantity"] {
+    height: 38px;
+}
+
+.cart_item {
+    text-align: right;
+    max-width: 90%;
+    margin-top: 50px;
+}
+
+.main-container{
+	width:100%;
+	display:block
+}
+.main-container .loginform{
+	max-width:500px;
+	margin:20px auto;
+	padding:10px;
+	background:#f7e7e7;
+	border:2px solid #ddd;
+	border-radius:6px;
+}
+.loginform h1{
+	display:block;
+	width:100%;
+	text-transform:capitalize;
+	padding:0 0 2px 20px;
+}
+.form-control.checkbox label{
+	margin: 0px 0 10px 0px;
+    display: inline-block;
+    width: auto;
+    vertical-align: text-bottom;
+}
+.form-control input[type='checkbox']{
+	display: inline-block;
+    max-width: 44px;
+    margin: 19px 1px 12px 0;	
+}
+.form-control label{
+	width:100%;
+	display:block;
+	font-weight:bold;
+	font-size:20px;
+	margin:10px 0 5px;
+}
+.form-control input, .form-control select{
+	width:100%;
+	display:block;
+	height:35px;
+}
+.main-container .title {
+    background: #dcd1d1;
+    border-bottom: 3px solid #ddd;
+    text-align: center;
+    padding: 5px 0 0 0;
+}
+.dashboard{
+	width:100%;
+	display:block;
+}
+.main-container .left{
+	display:inline-block;
+	width:30%;
+	min-height:600px;
+	vertical-align:top;
+}
+.main-container .right{
+	display:inline-block;
+	width:69%;
+    min-height:600px;
+	}	
+ul.sidemenu {
+    padding: 0px;
+    max-width: 300px;
+    width: 100%;
+    display: block;
+    border-top: 3px solid #a59797;
+    margin: 65px 0px 0 5px;
+}
+ul.sidemenu li {
+    background: #f1eaea;
+    height: 30px;
+    border-bottom: 1px solid #fff;
+    text-align: left;
+    padding: 8px 0px 8px 9px;
+    line-height: 30px;
+    cursor: pointer;
+}
+ul.sidemenu li a {
+    text-decoration: none;
+}
+ul.sidemenu li:hover {
+    background: #7a7373;
+	color:#fff;
+}	
+.dashboard .right h1 {
+    font-size: 20px;
+    margin: 18px 0 0 0;
+}
+.dashboard .form-control label {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    margin: 26px  0 0 0;
+}
+.main-container .form-control input[type="submit"] {
+    max-width: 195px;
+    margin: 15px auto;
+    text-transform: capitalize;
+    border: 0;
+    background: #f9777d;
+    color: #fff;
+    font-weight: bold;
+    padding: 18px 10px;
+    height: 53px;
+    border-radius: 6px;
+    box-shadow: 1px 3px 1px rgba(0,0,0,.6);
+	cursor:pointer;	
+}
+.messages {
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    top: 30px;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    padding: 30px 50px;
+    color: #f00;
+}
+.messages ul {
+    padding: 0;
+    margin: 0;
+    list-style: circle;
+}
+
+.item_form {
+    display: block;
+    width: 100%;
+}
+
+.item_form ul {
+    display: block;
+    width: 100%;
+    padding: 0px;
+    list-style: none;
+}
+
+.item_form li {
+    display: inline-block;
+	position:relative;
+	}
+
+.user_list {
+    margin: 10px;
+    max-width: 300px;
+    position: relative;
+}
+
+.user_list button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: #f00;
+    border: none;
+    color: #fff;
+    padding: 10px 12px 9px 12px;
+    text-transform: capitalize;
+	cursor:pointer;
+}
+
+
+
+ul.list {
+    background: #fcffd6;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+ul.list li {
+    display: block;
+    width: 99%;
+    border-bottom: 1px solid #f3eeee;
+    padding: 0 4px;
+}
+
+ul.list li span {
+    min-width: 200px;
+    display: inline-block;
+}
+
+li.top_head span {
+    font-weight: bold;
+    height: 43px;
+    line-height: 43px;
+}
+
+ul.list li form select {
+    height: 30px;
+}
+
+ul.list li form {
+    position: relative;
+}
+
+ul.list li button {
+    position: absolute;
+    background: #f00;
+    border: none;
+    color: #fff;
+    top: 0px;
+    left: 53px;
+    padding: 7px 15px;
+    border-radius: 0 4px 5px 0;
+}
+ul.list li div {
+    text-align: right;
+    margin: 0px 20px 0 0;
+}
+ul.item_lists {
+   position: absolute;
+    z-index: 999;
+    left: 61px;
+    top: 22px;
+    right: 0px;
+    background: #fff;
+    padding: 0px;
+    border: 1px solid #d6cccc;
+    max-height: 250px;
+    overflow-y: auto;
+    border-radius: 0 0 10px 9px;
+    display: none;
+    margin: 0px 14px;
+    max-width: 160px;
+}
+
+ul.item_lists li {
+    border-bottom: 1px solid #eee;
+    padding: 6px 6px 5px 9px;
+    word-wrap: normal;
+    cursor: pointer;
+}
+
+ul.item_lists li:hover {
+    background: #bfb9b9;
+}

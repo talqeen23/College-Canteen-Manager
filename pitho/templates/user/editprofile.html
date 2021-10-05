@@ -1,0 +1,46 @@
+{% extends 'user/layout.html' %}
+{% block pagetitle %} Edit Profile {% endblock %}
+{% block body %}
+<div class="main-container">
+<div class="title"><h1>Edit Profile</H1></div>
+<div class="dashboard">
+<div class="left">
+<div class="sidebar">
+<ul class="sidemenu">
+<li><a href="{{url_for('user_dashboard')}}">Home</a></li>
+<li><a href="{{url_for('user_changepassword')}}">Change Password</a></li>
+<li><a href="{{url_for('user_editprofile')}}"> Edit Profile</a></li>
+<li><a href="{{url_for('logout')}}">Logout</a></li>
+</ul>
+</div>
+</div>
+<div class="right">
+<h1>Edit Profile</h1>
+<form action="" method="POST">
+{{form.csrf_token}}
+<div class='form-control'>
+{{form.name.label}}
+{{form.name()}}
+{{render_error(form.name)}}
+</div>
+<div class='form-control'>
+{{form.youremail.label}}
+{{form.youremail()}}
+{{render_error(form.youremail)}}
+</div>
+<div class='form-control'>
+{{form.phonenumber.label}}
+{{form.phonenumber()}}
+{{render_error(form.phonenumber)}}
+</div>
+<div class='form-control'>
+<div class="from-control submitbtn">
+<input type='submit' value='Save Profile'>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}
+

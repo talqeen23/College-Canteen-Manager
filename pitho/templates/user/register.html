@@ -1,0 +1,40 @@
+{% extends 'user/layout.html' %}
+{% block pagetitle %} register {% endblock %}
+{% block body %}
+<div class="main-container">
+<div class="loginform registerform">
+<h1 class="display-5"> Register </h1>
+<form action="" method="POST">
+{{form.csrf_token()}}
+<div class="form-control">
+{{form.fname.label}}
+{{form.fname()}}
+{{render_error(form.fname)}}
+
+{{form.lname.label}}
+{{form.lname()}}
+{{render_error(form.lname)}}
+
+{{form.email.label()}}
+{{form.email()}}
+{{render_error(form.email)}}
+
+{{form.password.label}}
+{{form.password()}}
+{{render_error(form.password)}}
+
+{{form.user_type.label}}
+{{form.user_type()}}
+{{render_error(form.user_type)}}
+</div>
+<div class="form-control checkbox">
+{{form.checkbox()}}
+{{form.checkbox.label}}
+{{render_error(form.checkbox)}}
+<input type="submit" value="Register"/>
+</div>
+</form>
+<a href ="{{url_for('user_login')}}">If you have an account ? login now</a>
+</div>
+</div>
+{% endblock %}

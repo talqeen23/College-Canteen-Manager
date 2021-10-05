@@ -1,0 +1,41 @@
+{% extends 'user/layout.html' %}
+{% block pagetitle %} canteen menu {% endblock %}
+{% block body %}
+<div class="main-container">
+<div class='title'><h1>Canteen Menu</h1></div>
+<div class='dashboard'>
+<div class='left'>
+<div class='sidebar'>
+<ul class='sidemenu'>
+<li><a href="{{url_for('user_dashboard')}}">Home</a></li>
+<li><a href="{{url_for('user_menu')}}">Canteen Menu</a></li>
+<li><a href="{{url_for('user_changepassword')}}">Change Password</a></li>
+<li><a href="{{url_for('user_editprofile')}}">Edit Profile</a></li>
+<li><a href="{{url_for('logout')}}">logout</a></li>
+</ul>
+</div>
+</div>
+<div class='right'>
+
+<div class="cart_item">  <span><img src="{{url_for('static',filename='user/images/add.png')}}"/><a href="{{url_for('shop_cart')}}"> {{item}}</a></span></div>
+<div class="item_list">
+<ul class="list users">
+<li class="top_head"><span>Item Name</span><span>Item Price</span><span>Buy</span></li>
+
+{% for item in item_list %}
+<li>
+
+<span>{{item['item_name']}}</span>
+<span>{{item['item_price']}}&#x20b9;</span>
+<span><form method="post" action="{{url_for('add_Cart')}}"><input type="hidden" name="id" value="{{item['id']}}"/><input type="number" name="quantity" min="1" max="5" required="true"/><button type="submit"><img src="{{url_for('static',filename='user/images/add.png')}}"/></button></form></span>
+</li>
+{% endfor %}
+
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
